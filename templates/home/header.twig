@@ -1,12 +1,6 @@
 <header class="home-header">
 	<div class="home-header__container container">
-		{{
-			siteMacros.headerContent(
-				post.title,
-				post.get_field('greeting_subtitle'),
-				post.get_field('greeting_button_text')
-			)
-		}}
-		<div class="home-header__quote">{{post.get_field('greeting_quote')}}</div>
+		<h1 class="home-header__title title title-lg">{{post.get_field('greeting_title')}}</h1>
+		<h2 class="title title-sm">{{post.get_field('greeting_subtitle')}}</h2>
 	</div>
 </header>
