@@ -8,10 +8,14 @@
 			max-width: 60%
 
 	&__po
-		+my(45px)
+		+my(30px)
+		+min(xs)
+			+my(45px)
 		+min(sm)
 			+my(75px, 60px)
 		&-item
+			+max(xs)
+				text-align: center
 			+min(xs)
 				+d(flex)
 				flex-direction: row
@@ -22,7 +26,10 @@
 					flex-direction: row-reverse
 
 			&-image
-				+min(xs)
+				+w(100px)
+				flex-basis: 100px
+
+				+min(sm)
 					+w(150px)
 					flex-basis: 150px
 

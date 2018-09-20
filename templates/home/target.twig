@@ -18,7 +18,7 @@
 		<div class="home-target__body">
 			<div class="home-target__po row">
 				{% for item in post.get_field('target_po') %}
-					<div class="home-target__po-item col-12 col-xs-6">
+					<div class="home-target__po-item col-6">
 						<img src="{{item.image}}" alt="{{item.name}}" class="home-target__po-item-image">
 						<p class="home-target__po-item-title">{{item.name}}</p>
 					</div>

@@ -1,8 +1,6 @@
 .home-create
 	+r()
-
-	&_1
-		+px(15px)
+	+px(15px)
 
 	&_2
 		overflow: hidden
@@ -14,14 +12,16 @@
 		+fw(300)
 
 	&__links
-		+mt(45px)
+		+mt(30px)
+		+min(sm)
+			+mt(45px)
 		+fs(0)
 		a
 			+d(inline-block)
 			vertical-align: middle
 			+offset('r', 15px)
 		img
-			+h(50px)
+			+h(40px)
 			+transition()
 			+min(sm)
 				+h(65px)
@@ -29,24 +29,35 @@
 			&:hover
 				transform: scale(1.1)
 
+	&__body
+		+max(sm)
+			text-align: center
+
 	&__warning
-		+mt(60px)
+		+mt(30px)
+
+		+min(xs)
+			+mt(60px)
 
 		+min(sm)
-			margin-top: 150px
+			+mt(150px)
 
 		+min(sm)
-			margin-top: 300px
+			+mt(300px)
 
 		&-title
 			+d(inline-block)
 			+c($color-general)
 			+bgc($color-gray)
-			+fs(30px)
+			+fs(22px)
 			+fw(900)
 			text-transform: uppercase
-			min-width: 250px
+			min-width: 170px
 			text-align: center
+
+			+min(sm)
+				+fs(30px)
+				min-width: 250px
 
 		&-note
 			+mt(10px)
@@ -60,8 +71,9 @@
 			+min(sm)
 				+r(null, null, null, -32%)
 		&__body
-			text-align: right
+			
 			+min(sm)
+				text-align: right
 				max-width: 35%
 				+a(50%, 5%)
 				transform: translateY(-50%)
