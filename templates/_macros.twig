@@ -1,3 +1,12 @@
+{% macro pageHeader(title) %}
+	<header class="header">
+		<div class="container">
+			{% if title %}
+			<h1 class="title title-md">{{title}}</h1>
+			{% endif %}
+		</div>
+	</header>
+{% endmacro %}
 {% macro sectionTitle(headerClass, title, subtitle) %}
 	<div class="section__header {{headerClass}}">
 		{% if title %}
