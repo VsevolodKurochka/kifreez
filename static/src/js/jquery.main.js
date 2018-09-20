@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
 
 	function scroll(scrollLink, speed){
 		$('html, body').animate({
@@ -11,38 +11,6 @@ $(document).ready(function(){
 		scroll($( $(this).attr('href') ), 1500);
 	});
 
-	$("#home-last-reviews").owlCarousel({
-		loop: true,
-		margin: 15,
-		nav: false,
-		items: 1,
-		dots: true,
-		autoplay: false,
-		autoplayTimeout: 3000,
-		autoHeight: true,
-		responsive: {
-			768: {
-				items: 2,
-				autoHeight: false,
-				dots: true,
-			}
-		}
-	});
-
-	if($(window).width() < 768){
-		$('.home-reviews__content').addClass('owl-carousel');
-		$('.home-reviews__content').owlCarousel({
-			loop: true,
-			margin: 0,
-			nav: false,
-			items: 1,
-			dots: true,
-			autoplay: false,
-			autoplayTimeout: 3000,
-			autoHeight: true
-		});
-	}
-
 	// Tabs
 		$('[data-action="tab"]').click(function(){			
 			// Tab links toggle class
@@ -54,5 +22,66 @@ $(document).ready(function(){
 				$(".tabs__content > div").not($(tabTarget)).fadeOut(0);
 		});
 	
+	var $navigationLinks = $('#js-navigation-menu li > a');
+	// cache (in reversed order) the sections
+	var $sections = $($("section").get().reverse());
+
+	// map each section id to their corresponding navigation link
+	var sectionIdTonavigationLink = {};
+	$sections.each(function() {
+		var id = $(this).attr('id');
+		sectionIdTonavigationLink[id] = $('#js-navigation-menu li > a[href=\\#' + id + ']');
+	});
+
+	// throttle function, enforces a minimum time interval
+	function throttle(fn, interval) {
+		var lastCall, timeoutId;
+		return function () {
+			var now = new Date().getTime();
+			if (lastCall && now < (lastCall + interval) ) {
+					// if we are inside the interval we wait
+					clearTimeout(timeoutId);
+					timeoutId = setTimeout(function () {
+							lastCall = now;
+							fn.call();
+					}, interval - (now - lastCall) );
+			} else {
+					// otherwise, we directly call the function 
+					lastCall = now;
+					fn.call();
+			}
+		};
+	}
+
+	function highlightNavigation() {
+		// get the current vertical position of the scroll bar
+		var scrollPosition = $(window).scrollTop();
+
+		// iterate the sections
+		$sections.each(function() {
+				var currentSection = $(this);
+				// get the position of the section
+				var sectionTop = currentSection.offset().top;
+
+				// if the user has scrolled over the top of the section  
+				if (scrollPosition >= sectionTop - 200) {
+					// get the section id
+					var id = currentSection.attr('id');
+					// get the corresponding navigation link
+					var $navigationLink = sectionIdTonavigationLink[id];
+					// if the link is not active
+					if (!$navigationLink.hasClass('active')) {
+							// remove .active class from all the links
+							$navigationLinks.removeClass('active');
+							// add .active class to the current link
+							$navigationLink.addClass('active');
+					}
+					// we have found our section, so we return false to exit the each loop
+					return false;
+				}
+		});
+	}
+
+	$(window).scroll( throttle(highlightNavigation,100) );
 
 });	

@@ -8,6 +8,7 @@
 		+r()
 		+c(inherit)
 		text-decoration: none
+		+transition()
 
 	+max(md)
 		+mb(10px)
@@ -24,6 +25,12 @@
 		+offset('r', 15px)
 
 		a
-			+py(7px)
+			+linkEffect3($color-white)
 
-			+linkEffect3()
+			&.active:before
+				width: 100%
+				transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)
+			&.active:after
+				background-color: transparent
+				width: 100%
+				transition: 0s
