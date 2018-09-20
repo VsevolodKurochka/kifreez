@@ -1,0 +1,19 @@
+<section class="section home-technology">
+	<div class="container">
+		{{
+			macros.sectionTitle(
+				'home-create__header',
+				{
+					'type': 3,
+					'class': 'title-lg home-technology__title',
+					'text': post.get_field('technology_title')
+				}
+			)
+		}}
+		<ul class="home-technology__list">
+			{% for item in post.get_field('technology_list') %}
+				<li><img src="{{item.image}}" alt="{{post.get_field('technology_title')}}"></li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>
