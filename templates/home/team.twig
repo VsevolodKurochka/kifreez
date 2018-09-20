@@ -1,0 +1,28 @@
+<section class="section home-team">
+	<div class="container">
+		{{
+			macros.sectionTitle(
+				'home-team__header',
+				{
+					'type': 3,
+					'class': 'title-lg home-team__title',
+					'text': post.get_field('team_title')
+				},
+				{
+					'type': 4,
+					'class': 'title-sm home-team__subtitle',
+					'text': post.get_field('team_subtitle')
+				}
+			)
+		}}
+		<div class="row">
+			{% for person in post.get_field('team_persons') %}
+				<div class="col-12 col-xs-6 col-md-3 person">
+					<img src="{{person.image}}" alt="{{person.name}} - {{person.position}}" class="person__image">
+					<p class="person__title">{{person.name}}</p>
+					<p class="person__position">{{person.position}}</p>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
