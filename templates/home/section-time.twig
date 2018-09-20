@@ -1,7 +1,0 @@
-<section class="home-time background" style="background-image: url({{post.get_field('time_bg')}})">
-	<div class="container">
-		{{siteMacros.titleSection( post.get_field('time_title'), 'home-time__title' )}}
-		<p class="section__subtitle home-time__subtitle">{{post.get_field('time_subtitle')}}</p>
-		{{function('do_shortcode', post.get_field('time_shortcode'))}}
-	</div>
-</section>
