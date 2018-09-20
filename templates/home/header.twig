@@ -1,0 +1,21 @@
+<header class="home-header">
+	<div class="home-header__part home-header__part_1">
+		<img src="{{post.get_field('greeting_part_1')}}" alt="{{site.name}}">
+	</div>
+	<div class="home-header__part home-header__part_2">
+		<img src="{{post.get_field('greeting_part_2')}}" alt="{{site.name}}">
+	</div>
+	<div class="home-header__part home-header__part_3">
+		<img src="{{post.get_field('greeting_part_3')}}" alt="{{site.name}}">
+	</div>
+	<div class="home-header__container container">
+		{{
+			siteMacros.headerContent(
+				post.title,
+				post.get_field('greeting_subtitle'),
+				post.get_field('greeting_button_text')
+			)
+		}}
+		<div class="home-header__quote">{{post.get_field('greeting_quote')}}</div>
+	</div>
+</header>

@@ -1,0 +1,19 @@
+<section class="section home-knowledge">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				{{siteMacros.titleSection( post.get_field('knowledge_title'), 'home-knowledge__title' )}}
+				<div class="home-knowledge__content list list_check">
+					{{post.get_field('knowledge_content')}}
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<img 
+					src="{{post.get_field('knowledge_image')}}" 
+					alt="{{post.get_field('knowledge_title')|striptags}}" 
+					class="home-knowledge__image"
+				>
+			</div>
+		</div>
+	</div>
+</section>

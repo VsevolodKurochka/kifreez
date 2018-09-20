@@ -1,0 +1,153 @@
+{% macro headerContent(title, subtitle, button_text) %}
+	<div class="header__content">
+		{% if title %}
+			<h1 class="title header__title">{{title}}</h1>
+		{% endif %}
+
+		{% if subtitle %}
+			<h2 class="header__subtitle title">{{subtitle}}</h2>
+		{% endif %}
+		
+		{% if button_text %}
+			<button class="btn btn_shadow btn_lg btn_brand-1 header__button effect effect_bounce-top" data-action="modal" data-open="#modal-form">{{button_text}}</button>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro header(image, title, subtitle, button_text) %}
+	{% import _self as macros %}
+	<header class="header" style="background-image: url({{image}})">
+		<div class="container">
+			{{macros.headerContent(title, subtitle, button_text)}}
+		</div>
+	</header>
+{% endmacro %}
+
+{% macro titleSection(title, class) %}
+	<h3 class="section__title {{class}}">{{title}}</h3>
+{% endmacro %}
+
+{% macro buttonModal(text, class) %}
+	{% if text %}
+		{% set button_text = text %}
+	{% else %}
+		{% set button_text = "Заказать услугу" %}
+	{% endif %}
+	<div class="section__button-outer {{class}}">
+		<button class="btn btn_shadow btn_lg btn_brand-1 effect effect_bounce-top" data-action="modal" data-open="#modal-form">{{button_text}}</button>
+	</div>
+{% endmacro %}
+
+{% macro icon(class, image, title, content) %}
+	<div class="icon {{class}}">
+		<div class="icon__header">
+			<img src="{{image}}" alt="{{content|striptags}}" class="icon__image">
+		</div>
+		{% if title %}
+			<div class="icon__title">{{title}}</div>
+		{% endif %}
+		<div class="icon__content">{{content}}</div>
+	</div>
+{% endmacro %}
+
+{% macro format(class, image, title, content) %}
+	<div class="col-12 col-sm-6 format-item {{class}}">
+		<div class="format-item__inner">
+			<img src="{{image}}" alt="{{content|striptags}}" class="format-item__image">
+			<div class="format-item__body">
+				{% if title %}
+					<div class="format-item__title">{{title}}</div>
+				{% endif %}
+				<div class="format-item__content">{{content}}</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro shopItem(class, item, i) %}
+	<div class="shop-item {{class}}">
+		<div class="shop-item__inner">
+			<div class="shop-item__header">
+				<img src="{{item.image}}" alt="{{item.title|striptags}}" class="shop-item__header-image">
+			</div>
+			<div class="shop-item__body">
+				<p class="shop-item__subtitle">{{item.subtitle}}</p>
+				<p class="shop-item__title">{{item.title}}</p>
+				<div class="shop-item__description">{{item.description}}</div>
+				<p class="shop-item__price">{{item.price}}<sup>грн</sup></p>
+				<div class="shop-item__body-link-outer">
+					<button class="shop-item__more" data-action="modal" data-open="#shop-modal-{{i}}">Подробнее</button>
+					<a href="{{item.link}}" target="_blank" class="btn btn_shadow btn_brand-1 effect effect_bounce-top shop-item__buy">Купить</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="shop-modal-{{i}}">
+		<div class="modal__box modal__box_medium">
+			<div class="modal__header">
+				<button class="modal__close" data-close="modal">&times;
+				</button>
+			</div>
+			<div class="modal__body">
+				{{item.content}}
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro servicesItem(class, item) %}
+	<div class="services-item {{class}}">
+		<div class="services-item__inner">
+			<img src="{{item.image}}" alt="{{item.title|striptags}}" class="services-item__image">
+			<p class="services-item__title">{{item.title}}</p>
+			<div class="services-item__content">{{item.content}}</div>
+			<a href="{{item.link}}" target="_blank" class="btn btn_shadow btn_lg btn_brand-1 effect effect_bounce-top services-item__buy">Подробнее об услуге</a>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro eventItem(class, event, modalName) %}
+	<div class="event-item {{class}}">
+		<div class="event-item__inner">
+			<p class="event-item__title">{{event.title}}</p>
+			<div class="event-item__subheader">
+				<p class="event-item__date">Дата: {{event.event_date|date('d.m.Y')}}</p>
+				{% if event.event_time %}
+					<p class="event-item__time">Время: {{event.event_time|date('H:i')}}</p>
+				{% endif %}
+			</div>
+			<div class="event-item__text">{{event.description}}</div>
+
+			<button class="btn event-item__more" data-action="modal" data-open="#{{modalName}}">Подробнее</button>
+		</div>
+	</div>
+	<div class="modal" id="{{modalName}}">
+		<div class="modal__box modal__box_medium">
+			<div class="modal__header">
+				<button class="modal__close" data-close="modal">&times;</button>
+			</div>
+			<div class="modal__body">
+				<div class="event-item-modal">
+					<div class="event-item__offset">
+						<p class="event-item__title">{{event.title}}</p>
+						<p class="event-item__subtitle">Дата проведения:</p>
+						<p>{{event.event_date|date('d.m.Y')}} 
+						{% if event.event_time %}
+							({{event.event_time|date('H:i')}})
+						{% endif %}
+						</p>
+					</div>
+					<div class="event-item__offset">
+						<p class="event-item__subtitle">Описание мероприятия:</p>
+						<div class="event-item__text">{{event.event_content}}</div>
+					</div>
+					
+					<div class="event-item__place">
+						<p class="event-item__subtitle">Место: {{event.place}}</p>
+						{{event.place_map}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}

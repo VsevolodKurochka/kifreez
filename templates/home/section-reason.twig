@@ -1,0 +1,20 @@
+<section class="section home-reason">
+	<div class="container">
+		{{siteMacros.titleSection( post.get_field('reason_title'), 'home-reason__title' )}}
+		<div class="row">
+			{% set i = 0 %}
+			{% for item in post.get_field('reason_items') %}
+				{% set i = i + 1 %}
+				<div class="col-12 col-sm-4 reason-item">
+					<div class="reason-item__header">
+						<img src="{{item.image}}" alt="{{item.title|striptags}}">
+					</div>
+					<div class="reason-item__content">
+						<span class="reason-item__content-number">{{i}}</span>
+						{{item.content}}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

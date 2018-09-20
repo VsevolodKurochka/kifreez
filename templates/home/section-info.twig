@@ -1,0 +1,11 @@
+<section class="home-info background" style="background-image: url({{post.get_field('info_bg')}})">
+	<div class="container">
+		<div class="row home-info__row">
+			<div class="col-12 col-md-6">
+				{{siteMacros.titleSection( post.get_field('info_title'), 'home-info__title' )}}
+				<p class="section__subtitle home-info__subtitle">{{post.get_field('info_subtitle')}}</p>
+				{{function('do_shortcode', post.get_field('info_shortcode'))}}
+			</div>
+		</div>
+	</div>
+</section>

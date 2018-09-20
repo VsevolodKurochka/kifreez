@@ -1,0 +1,18 @@
+{% import '_macros.twig' as siteMacros %}
+{% include 'html-header.twig' %}
+</head>
+<body class="{{body_class}}" data-template="base.twig">
+	{% block nav %}
+		{% include 'nav.twig' %}
+	{% endblock %}
+	<main class="site">
+
+		{% block content %}
+			Sorry, no content
+		{% endblock %}
+
+		{% include 'footer.twig' %}
+	</main>
+	{{ function('wp_footer') }}
+</body>
+</html>
