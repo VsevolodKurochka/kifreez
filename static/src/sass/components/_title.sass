@@ -10,34 +10,42 @@ $title-md: ("title-md": ('default': 25px, 'sm': 30px, 'md': 40px, 'lg': 50px))
 /// Define sizes for title-lg
 $title-lg: ("title-lg": ('default': 30px, 'sm': 5.2vmax))
 
+$title-xlg: ("title-xlg": ('default': 30px, 'sm': 8.2vmax))
+
 // Merge all defined maps
 $sizes: map-merge($title-xs, $title-sm)
 $sizes: map-merge($sizes, $title-md)
 $sizes: map-merge($sizes, $title-lg)
+$sizes: map-merge($sizes, $title-xlg)
 
 %title-default
-  margin-top: 10px
-  margin-bottom: 25px
-  line-height: 1.1
-  +fw(900)
+	margin-top: 10px
+	margin-bottom: 25px
+	line-height: 1.1
+	+fw(900)
 
 .title
-  &-xs
-    +fs-map("title-xs")
+	&-xs
+		+fs-map("title-xs")
 
-    @extend %title-default
+		@extend %title-default
 
-  &-sm
-    +fs-map("title-sm")
+	&-sm
+		+fs-map("title-sm")
 
-    @extend %title-default
+		@extend %title-default
 
-  &-md
-    +fs-map("title-md")
+	&-md
+		+fs-map("title-md")
 
-    @extend %title-default
+		@extend %title-default
 
-  &-lg
-    +fs-map("title-lg")
+	&-lg
+		+fs-map("title-lg")
 
-    @extend %title-default
+		@extend %title-default
+
+	&-xlg
+		+fs-map("title-xlg")
+
+		@extend %title-default
