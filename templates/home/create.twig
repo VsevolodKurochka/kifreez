@@ -17,7 +17,7 @@
 			)
 		}}
 		{% if post.get_field('create_button_enable') %}
-			<a href="#" class="btn btn_lg btn_border-white effect effect_bounce-top">{{post.get_field('create_button_text')}}</a>
+			<a href="mailto: {{options.email}}" class="btn btn_lg btn_border-white effect effect_bounce-top">{{post.get_field('create_button_text')}}</a>
 		{% endif %}
 	</div>
 </section>

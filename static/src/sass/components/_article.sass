@@ -1,4 +1,5 @@
 .article
+	+fw(300)
 	margin-bottom: 30px
 	p,ul,ol
 		margin-bottom: 15px
@@ -44,14 +45,11 @@
 	img
 		height: auto
 
-	&__content
-		text-align: justify
+	a
+		text-decoration: none
+		color: $color-general
+		+fw(900)
+		+transition()
 
-	&__footer
-		margin-top: 30px
-		padding-top: 30px
-		border-top: 1px solid #ddd
-
-		&-title
-			font-size: 23px
-			+fw(900)
+		&:hover
+			color: $color-brand-1-darken

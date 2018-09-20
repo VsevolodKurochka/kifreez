@@ -5,7 +5,7 @@
 	&_2
 		overflow: hidden
 
-		+min(sm)
+		+min(md)
 			margin-top: -400px
 
 	&__subtitle
@@ -20,6 +20,9 @@
 			+d(inline-block)
 			vertical-align: middle
 			+offset('r', 15px)
+			+max(md)
+				+min(sm)
+					+offset('b', 15px)
 		img
 			+h(40px)
 			+transition()

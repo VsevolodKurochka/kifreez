@@ -77,7 +77,7 @@ class StarterSite extends TimberSite {
 	function generate_menu() {
 		
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Меню в шапке', 'visotskiy' ),
+			'menu-1' => esc_html__( 'Меню на главной', 'visotskiy' ),
 		) );
 	}
 
