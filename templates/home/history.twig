@@ -1,0 +1,24 @@
+<section class="home-create home-create_2">
+	<img src="{{post.get_field('history_image')}}" alt="{{post.get_field('history_title')|striptags}}" class="home-create__image">
+	<div class="home-create__body">
+		{{
+			macros.sectionTitle(
+				'home-create__header',
+				{
+					'type': 3,
+					'class': 'title-lg home-history__title',
+					'text': post.get_field('history_title')
+				}
+			)
+		}}
+		<div class="home-create__links">
+			{% for link in post.get_field('history_links') %}
+				<a href="{{link.link}}"><img src="{{link.image}}" alt="{{post.get_field('history_title')|striptags}}"></a>
+			{% endfor %}
+		</div>
+		<div class="home-create__warning">
+			<p class="home-create__warning-title">{{post.get_field('history_warning')}}</p>
+			<p class="home-create__warning-note">{{post.get_field('history_note')}}</p>
+		</div>
+	</div>
+</section>

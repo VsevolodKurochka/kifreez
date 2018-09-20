@@ -1,0 +1,30 @@
+<section class="section home-target">
+	<div class="container">
+		{{
+			macros.sectionTitle(
+				'home-target__header',
+				{
+					'type': 3,
+					'class': 'title-lg home-target__title',
+					'text': post.get_field('target_title')
+				},
+				{
+					'type': 4,
+					'class': 'title-sm home-target__subtitle',
+					'text': post.get_field('target_subtitle')
+				}
+			)
+		}}
+		<div class="home-target__body">
+			<div class="home-target__po row">
+				{% for item in post.get_field('target_po') %}
+					<div class="home-target__po-item col-12 col-xs-6">
+						<img src="{{item.image}}" alt="{{item.name}}" class="home-target__po-item-image">
+						<p class="home-target__po-item-title">{{item.name}}</p>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="home-target__content">{{post.get_field('target_content')}}</div>
+		</div>
+	</div>
+</section>

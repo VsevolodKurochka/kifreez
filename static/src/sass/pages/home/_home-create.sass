@@ -1,14 +1,56 @@
 .home-create
-	&__row
-		+min(sm)
-			align-items: center
-	&__body
-		text-align: right
-	&__subtitle
-		+fw(300)
+	+r()
 
 	&_1
 		+px(15px)
+
+	&_2
+		overflow: hidden
+
+		+min(sm)
+			margin-top: -400px
+
+	&__subtitle
+		+fw(300)
+
+	&__links
+		+mt(45px)
+		+fs(0)
+		a
+			+d(inline-block)
+			vertical-align: middle
+			+offset('r', 15px)
+		img
+			+h(50px)
+			+transition()
+			+min(sm)
+				+h(65px)
+
+			&:hover
+				transform: scale(1.1)
+
+	&__warning
+		+mt(60px)
+
+		+min(sm)
+			margin-top: 150px
+
+		+min(sm)
+			margin-top: 300px
+
+		&-title
+			+d(inline-block)
+			+c($color-general)
+			+bgc($color-gray)
+			+fs(30px)
+			+fw(900)
+			text-transform: uppercase
+			min-width: 250px
+			text-align: center
+
+		&-note
+			+mt(10px)
+			+c($color-general)
 
 	&_1 &
 		&__row
@@ -18,7 +60,19 @@
 			+min(sm)
 				+r(null, null, null, -32%)
 		&__body
+			text-align: right
 			+min(sm)
 				max-width: 35%
 				+a(50%, 5%)
+				transform: translateY(-50%)
+
+	&_2 &
+		&__image
+			+min(sm)
+				width: 80%
+				+r(null, -35%)
+		&__body
+			+min(sm)
+				max-width: 35%
+				+a(50%, null, null, 5%)
 				transform: translateY(-50%)

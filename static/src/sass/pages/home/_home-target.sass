@@ -1,0 +1,33 @@
+.home-target
+	&__header
+		text-align: center
+
+	&__body
+		+min(md)
+			+mx(auto)
+			max-width: 60%
+
+	&__po
+		+my(45px)
+		+min(sm)
+			+my(75px, 60px)
+		&-item
+			+min(xs)
+				+d(flex)
+				flex-direction: row
+				flex-wrap: wrap
+				align-items: center
+
+				&:nth-child(odd)
+					flex-direction: row-reverse
+
+			&-image
+				+min(xs)
+					+w(150px)
+					flex-basis: 150px
+
+			&-title
+				+fw(900)
+				+fs(20px)
+				+min(xs)
+					+mx(15px)
