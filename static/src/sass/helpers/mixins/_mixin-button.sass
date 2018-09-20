@@ -30,12 +30,15 @@
 	&:before
 		background-color: darken($btn-background, 15%)
 
-=btn-border($btn-border-color, $btn-color)
+=btn-border($btn-border-color, $btn-color, $btn-before: $btn-border-color)
 	border-color: $btn-border-color
 	color: $btn-color
 
 	&:before
-		background-color: $btn-border-color
+		background-color: $btn-before
+
+	&:hover
+		border-color: $btn-before
 
 //-
 //- Mixin for iteration button
@@ -48,10 +51,6 @@
 		&_#{$name}
 			+btn-static($btn-bg, $btn-color)
 
-			&-simple
-				&:hover
-					background-color: darken($btn-bg, 15%)
-
 =btn-border-iteration()
 	@at-root %btn-border
 		border-width: $btn-border-width
@@ -60,10 +59,11 @@
 	@each $name, $values in $btn-border
 		$btn-border-color: nth($values, 1)
 		$btn-color: nth($values, 2)
+		$btn-before: nth($values, 3)
 
 		&_border-#{$name}
 			@extend %btn-border
 
 			background-color: transparent
 
-			+btn-border($btn-border-color, $btn-color)
+			+btn-border($btn-border-color, $btn-color, $btn-before)

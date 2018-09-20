@@ -7,7 +7,7 @@ $btn-large-padding: 15px 25px
 $btn-large-font-size: 18px
 
 // Button border
-$btn-border-width: 3px
+$btn-border-width: 2px
 $btn-border-style: solid
 
 //-
@@ -20,11 +20,12 @@ $btn-static: ("white": ($color-white, $color-brand-1), "brand-1": ($color-brand-
 
 // 1 key - border-color
 // 2 key - text color
-$btn-border: ("brand-1": ($color-brand-1, $color-brand-1))
+$btn-border: ("white": ($color-white, $color-white, $color-general))
 
 .btn
 	+btn()
 	+btn-size($btn-padding, $btn-font-size)
+	border-radius: 5px
 
 	&-group &
 		margin: 5px
