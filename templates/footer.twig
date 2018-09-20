@@ -1,5 +1,35 @@
 <footer class="footer">
 	<div class="container">
-		<img src="{{options.logo}}" class="footer__logo" alt="{{site.name}}">
+		<div class="footer__row row">
+			<div class="col-12 col-sm-8">
+				{{
+					macros.sectionTitle(
+						'footer__header',
+						{
+							'type': 3,
+							'class': 'title-md footer__title',
+							'text': options.footer_title
+						},
+						{
+							'type': 4,
+							'class': 'title-xs footer__subtitle',
+							'text': options.footer_subtitle
+						}
+					)
+				}}
+			</div>
+			<div class="col-12 col-sm-4">
+				<a href="mailto: {{options.email}}" class="footer__link footer__link_email">{{options.email}}</a>
+				<ul class="social footer__social">
+					{% for social in options.social %}
+						<li><a href="{{social.link}}">{{social.icon}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="footer__info">
+			<a href="{{site.url}}"><img src="{{options.logo}}" class="footer__logo" alt="{{site.name}}"></a>
+			<p>{{options.cities}}</p>
+		</div>
 	</div>
 </footer>

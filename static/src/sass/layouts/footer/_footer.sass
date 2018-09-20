@@ -1,3 +1,33 @@
 .footer
 	+bgc(#2c2c2c)
-	+fs(12px)
+	+py(30px)
+
+	+min(sm)
+		+py(4vmax)
+
+	&__row
+		+mb(45px)
+
+		+min(sm)
+			+mb(5vmax)
+
+	&__header
+		+min(sm)
+			margin-bottom: 0
+
+	&__link
+		display: block
+		+c($color-white)
+		text-decoration: none
+		+transition()
+		+fs(22px)
+		+fw(900)
+
+		&:hover
+			+c($color-brand-1)
+
+	&__social
+		margin-top: 10px
+
+	&__logo
+		+h(45px)

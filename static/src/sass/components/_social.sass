@@ -1,0 +1,21 @@
+.social
+	list-style: none
+	li
+		+d(inline-block)
+		vertical-align: middle
+		+offset('r', 10px)
+
+	a
+		+d(flex)
+		align-items: center
+		justify-content: center
+		+size(50px)
+		+bgc(#fff)
+		border-radius: 100%
+		+transition()
+
+		&:hover
+			+bgc($color-brand-1)
+
+		svg
+			+size(22px)
