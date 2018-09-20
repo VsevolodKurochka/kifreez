@@ -1,0 +1,41 @@
+.home-video
+
+	&__content
+		+r()
+		+w(90%)
+		+mx(auto)
+		z-index: 1
+		padding: 30px 15px
+
+		+min(sm)
+			padding: 6vmax
+
+		&:before
+			content: ""
+			+a(0, null, null, 0)
+			+size(100%)
+			+bgc($color-brand-1)
+			box-shadow: rgba(119,0,0,.3) 0 1rem 3.6rem
+			z-index: -1
+			+transition()
+
+
+		&:hover:before
+			transform: scale(0.95)
+
+	&__subtitle
+		+fw(300)
+
+	&__header
+		+min(sm)
+			margin-bottom: 0
+
+
+	&__iframe
+		+size(100%, 150px)
+
+		+min(sm)
+			+h(300px)
+
+		+min(md)
+			+h(100%)

@@ -1,0 +1,26 @@
+<section class="section home-video">
+	<div class="home-video__content">
+		<div class="row home-video__row">
+			<div class="col-12 col-md-5">
+				{{
+					macros.sectionTitle(
+						'home-video__header',
+						{
+							'type': 3,
+							'class': 'title-lg home-video__title',
+							'text': post.get_field('video_title')
+						},
+						{
+							'type': 4,
+							'class': 'title-xs home-video__subtitle',
+							'text': post.get_field('video_subtitle')
+						}
+					)
+				}}
+			</div>
+			<div class="col-12 col-md-7">
+				<iframe class="home-video__iframe" src="https://www.youtube.com/embed/{{post.get_field('video_iframe')}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</section>
