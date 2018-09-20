@@ -1,0 +1,24 @@
+.home-create
+	&__row
+		+min(sm)
+			align-items: center
+	&__body
+		text-align: right
+	&__subtitle
+		+fw(300)
+
+	&_1
+		+px(15px)
+
+	&_1 &
+		&__row
+			+min(sm)
+				justify-content: flex-end
+		&__image
+			+min(sm)
+				+r(null, null, null, -32%)
+		&__body
+			+min(sm)
+				max-width: 35%
+				+a(50%, 5%)
+				transform: translateY(-50%)
