@@ -93,7 +93,7 @@ jQuery(document).ready(function($){
 		// Add parallax scrolling to all images in .paralax-image container
 		$('.parallax-image').each(function(){
 			var section = $(this).closest('section');
-			var speed = $(this).hasAttr('data-speed') ? $(this).attr('data-speed') : 3;
+			var speed = $(this).hasAttr('data-speed') ? $(this).attr('data-speed') : 5;
 			console.log(speed);
 			//console.log(typeof speed);
 			// only put top value if the window scroll has gone beyond the top of the image
@@ -105,7 +105,7 @@ jQuery(document).ready(function($){
 				var half = (difference / speed) + 'px';
 				console.log(half);
 
-				$(this).find('img').css('top', half);
+				$(this).find('img').css('top', "-" + half);
 			} else {
 				// if image is below the top of the window set top to 0
 				//$(this).find('img').css('top', '0');
