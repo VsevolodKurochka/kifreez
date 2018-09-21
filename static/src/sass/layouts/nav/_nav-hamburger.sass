@@ -4,7 +4,7 @@ $hamburger-width: 30px
 $hamburger-height: 28px
 $hamburger-transistion-duration: 0.3s
 $hamburger-line-width: 100%
-$hamburger-line-height: 2px
+$hamburger-line-height: 3px
 $hamburger-line-radius: 5px
 
 .hamburger
@@ -16,7 +16,6 @@ $hamburger-line-radius: 5px
 		%hamburger-transition
 			transition: .25s ease-in-out
 
-	margin-right: 15px
 	padding: 0
 	background-color: transparent
 	border: none
@@ -25,7 +24,7 @@ $hamburger-line-radius: 5px
 	-webkit-tap-highlight-color: transparent
 	cursor: pointer
 	z-index: 100
-	+r
+	+r()
 
 	@extend %hamburger-transition
 

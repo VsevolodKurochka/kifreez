@@ -2,7 +2,9 @@
 	<div class="container">
 		<div class="row home-project__row">
 			<div class="col-12 col-xs-6 col-md-5 home-project__image">
-				<img src="{{post.get_field('project_image')}}" alt="{{post.get_field('project_title')|striptags}}">
+				<div class="parallax-image">
+					<img src="{{post.get_field('project_image')}}" alt="{{post.get_field('project_title')|striptags}}">
+				</div>
 			</div>
 			<div class="col-12 col-xs-6 col-md-7">
 				<h3 class="title title-lg">{{post.get_field('project_title')}}</h3>

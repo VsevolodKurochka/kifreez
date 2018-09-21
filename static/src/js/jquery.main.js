@@ -84,4 +84,26 @@ jQuery(document).ready(function($){
 
 	$(window).scroll( throttle(highlightNavigation,100) );
 
+
+	$(window).scroll(function(){
+		// Add parallax scrolling to all images in .paralax-image container
+		$('.parallax-image').each(function(){
+			var section = $(this).closest('section');
+			// only put top value if the window scroll has gone beyond the top of the image
+			if ( ($(this).offset().top - 500 < $(window).scrollTop()) && (section.offset().top + section.outerHeight() ) > $(window).scrollTop() ) {
+				// Get ammount of pixels the image is above the top of the window
+				var difference = $(window).scrollTop() - $(this).offset().top;
+				// Top value of image is set to half the amount scrolled
+				// (this gives the illusion of the image scrolling slower than the rest of the page)
+				var half = (difference / 3) + 'px';
+
+				$(this).find('img').css('top', half);
+			} else {
+				// if image is below the top of the window set top to 0
+				$(this).find('img').css('top', '0');
+			}
+		});
+
+	});
+
 });	
