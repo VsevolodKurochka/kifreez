@@ -1,5 +1,9 @@
 jQuery(document).ready(function($){
 
+	$.fn.hasAttr = function(name) {  
+   return this.attr(name) !== undefined;
+};
+
 	function scroll(scrollLink, speed){
 		$('html, body').animate({
 			scrollTop: scrollLink.offset().top
@@ -89,21 +93,42 @@ jQuery(document).ready(function($){
 		// Add parallax scrolling to all images in .paralax-image container
 		$('.parallax-image').each(function(){
 			var section = $(this).closest('section');
+			var speed = $(this).hasAttr('data-speed') ? $(this).attr('data-speed') : 3;
+			console.log(speed);
+			//console.log(typeof speed);
 			// only put top value if the window scroll has gone beyond the top of the image
-			if ( ($(this).offset().top - 500 < $(window).scrollTop()) && (section.offset().top + section.outerHeight() ) > $(window).scrollTop() ) {
+			if ( ($(this).offset().top - 500 < $(window).scrollTop()) && (section.offset().top + section.outerHeight() - 200 ) > $(window).scrollTop() ) {
 				// Get ammount of pixels the image is above the top of the window
 				var difference = $(window).scrollTop() - $(this).offset().top;
 				// Top value of image is set to half the amount scrolled
 				// (this gives the illusion of the image scrolling slower than the rest of the page)
-				var half = (difference / 3) + 'px';
+				var half = (difference / speed) + 'px';
+				console.log(half);
 
 				$(this).find('img').css('top', half);
 			} else {
 				// if image is below the top of the window set top to 0
-				$(this).find('img').css('top', '0');
+				//$(this).find('img').css('top', '0');
 			}
 		});
 
 	});
+
+	if($(window).width() < 768){
+		$('#team-carousel')
+			.addClass('owl-carousel')
+			.removeClass('row');
+		$('#team-carousel').owlCarousel({
+			loop: true,
+			nav: true,
+			items: 1,
+			dots: false,
+			navContainerClass: 'home-team__carousel-nav',
+			navClass: [
+				"home-team__carousel-btn home-team__carousel-btn_prev btn btn_general effect effect_bounce-bottom", 
+				"home-team__carousel-btn home-team__carousel-btn_next btn btn_general effect effect_bounce-bottom"
+			]
+		});
+	}
 
 });	
