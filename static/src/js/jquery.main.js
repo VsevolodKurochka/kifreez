@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
 
 	$.fn.hasAttr = function(name) {  
-   return this.attr(name) !== undefined;
+	 return this.attr(name) !== undefined;
 };
 
 	function scroll(scrollLink, speed){
@@ -88,29 +88,33 @@ jQuery(document).ready(function($){
 
 	$(window).scroll( throttle(highlightNavigation,100) );
 
-
-	$(window).scroll(function(){
-		// Add parallax scrolling to all images in .paralax-image container
-		$('.parallax-image').each(function(){
-			var section = $(this).closest('section');
-			var speed = $(this).hasAttr('data-speed') ? $(this).attr('data-speed') : 5;
-			//console.log(typeof speed);
-			// only put top value if the window scroll has gone beyond the top of the image
-			if ( ($(this).offset().top - 500 < $(window).scrollTop()) && (section.offset().top + section.outerHeight() - 200 ) > $(window).scrollTop() ) {
-				// Get ammount of pixels the image is above the top of the window
-				var difference = $(window).scrollTop() - $(this).offset().top;
-				// Top value of image is set to half the amount scrolled
-				// (this gives the illusion of the image scrolling slower than the rest of the page)
-				var half = (difference / speed) + 'px';
-
-				$(this).find('img').css('top', "-" + half);
-			} else {
-				// if image is below the top of the window set top to 0
-				//$(this).find('img').css('top', '0');
-			}
-		});
-
+	$('.parallax-image img').parally({
+		speed: 0.2,
+		mode: 'transform'
 	});
+
+	// $(window).scroll(function(){
+	// 	// Add parallax scrolling to all images in .paralax-image container
+	// 	$('.parallax-image').each(function(){
+	// 		var section = $(this).closest('section');
+	// 		var speed = $(this).hasAttr('data-speed') ? $(this).attr('data-speed') : 5;
+	// 		//console.log(typeof speed);
+	// 		// only put top value if the window scroll has gone beyond the top of the image
+	// 		if ( ($(this).offset().top < $(window).scrollTop()) && (section.offset().top + section.outerHeight() - 200 ) > $(window).scrollTop() ) {
+	// 			// Get ammount of pixels the image is above the top of the window
+	// 			var difference = $(window).scrollTop() - $(this).offset().top;
+	// 			// Top value of image is set to half the amount scrolled
+	// 			// (this gives the illusion of the image scrolling slower than the rest of the page)
+	// 			var half = (difference / speed) + 'px';
+
+	// 			$(this).find('img').css('top', "-" + half);
+	// 		} else {
+	// 			// if image is below the top of the window set top to 0
+	// 			//$(this).find('img').css('top', '0');
+	// 		}
+	// 	});
+
+	// });
 
 	if($(window).width() < 768){
 		$('#team-carousel')
