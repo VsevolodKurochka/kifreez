@@ -27,8 +27,10 @@ $btn-border: ("white": ($color-white, $color-white, $color-general))
 	+btn-size($btn-padding, $btn-font-size)
 	border-radius: 5px
 
-	&:active
-		transform: scale(0.9)
+	&:active,
+	&:focus
+		transition: all ease 2s
+		transform: scale(0.8)
 
 	&-group &
 		margin: 5px
