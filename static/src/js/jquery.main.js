@@ -116,21 +116,16 @@ jQuery(document).ready(function($){
 
 	// });
 
-	if($(window).width() < 768){
-		$('#team-carousel')
-			.addClass('owl-carousel')
-			.removeClass('row');
-		$('#team-carousel').owlCarousel({
-			loop: true,
-			nav: true,
-			items: 1,
-			dots: false,
-			navContainerClass: 'home-team__carousel-nav',
-			navClass: [
-				"home-team__carousel-btn home-team__carousel-btn_prev btn btn_general effect effect_bounce-bottom", 
-				"home-team__carousel-btn home-team__carousel-btn_next btn btn_general effect effect_bounce-bottom"
-			]
-		});
-	}
+	$('#team-carousel').owlCarousel({
+		loop: true,
+		nav: true,
+		items: 1,
+		dots: false,
+		navContainerClass: 'home-team__carousel-nav',
+		navClass: [
+			"home-team__carousel-btn home-team__carousel-btn_prev btn btn_general effect effect_bounce-bottom", 
+			"home-team__carousel-btn home-team__carousel-btn_next btn btn_general effect effect_bounce-bottom"
+		]
+	});
 
 });	
