@@ -25,12 +25,14 @@
 		+offset('r', 15px)
 
 		a
-			+linkEffect3($color-white)
+			&:hover
+				+c($color-brand-1-darken)
+			//+linkEffect3($color-white)
 
-			&.active:before
-				width: 100%
-				transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)
-			&.active:after
-				background-color: transparent
-				width: 100%
-				transition: 0s
+			// &.active:before
+			// 	width: 100%
+			// 	transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1)
+			// &.active:after
+			// 	background-color: transparent
+			// 	width: 100%
+			// 	transition: 0s
