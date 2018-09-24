@@ -88,10 +88,12 @@ jQuery(document).ready(function($){
 
 	$(window).scroll( throttle(highlightNavigation,100) );
 
-	$('.parallax-image img').parally({
-		speed: 0.2,
-		mode: 'transform'
-	});
+	if($(window).width() > 1025){
+		$('.parallax-image img').parally({
+			speed: 0.2,
+			mode: 'transform'
+		});
+	}
 
 	// $(window).scroll(function(){
 	// 	// Add parallax scrolling to all images in .paralax-image container
@@ -125,7 +127,15 @@ jQuery(document).ready(function($){
 		navClass: [
 			"home-team__carousel-btn home-team__carousel-btn_prev btn btn_general effect effect_bounce-bottom", 
 			"home-team__carousel-btn home-team__carousel-btn_next btn btn_general effect effect_bounce-bottom"
-		]
+		],
+		responsive: {
+			768: {
+				items: 2
+			},
+			1025: {
+				items: 3
+			}
+		}
 	});
 
 });	

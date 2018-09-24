@@ -15,10 +15,13 @@
 				}
 			)
 		}}
-		<div class="owl-carousel" id="team-carousel">
+		<div class="home-team__carousel owl-carousel" id="team-carousel">
 			{% for person in post.get_field('team_persons') %}
 				<div class="person">
-					<img src="{{person.image}}" alt="{{person.name}} - {{person.position}}" class="person__image">
+					<div class="person__header">
+						<img src="{{person.image}}" alt="{{person.name}} - {{person.position}}" class="person__image">
+						<div class="person__description">{{person.description}}</div>
+					</div>
 					<p class="person__title">{{person.name}}</p>
 					<p class="person__position">{{person.position}}</p>
 				</div>

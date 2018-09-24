@@ -1,15 +1,46 @@
 .person
 	text-align: center
-	+offset('b', 30px)
-
-	&__image
+	
+	&__header
+		+r()
+		+d(inline-block)
 		+size(150px)
-		object-fit: cover
 		+mb(5px)
 
 		+min(sm)
 			+size(200px)
 			+mb(15px)
+
+		+min(md)
+			+size(225px)
+
+	&__description
+		+d(flex)
+		display: flex
+		align-items: center
+		justify-content: center
+		
+		+a(0, 0)
+		+size(100%)
+		padding: 15px
+		+bgc($color-brand-1)
+		
+		transform: translateY(-250%)
+		+transition()
+		overflow: hidden
+		
+		+c($color-white)
+		text-align: center
+		font-size: 18px
+		+fw(900)
+
+	&:hover &__description
+		transform: none
+
+	&__image
+		+size(100%)
+		object-fit: cover
+		
 
 	&__title
 		+fw(900)
