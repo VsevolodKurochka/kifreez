@@ -94,7 +94,6 @@ jQuery(document).ready(function($){
 		$('.parallax-image').each(function(){
 			var section = $(this).closest('section');
 			var speed = $(this).hasAttr('data-speed') ? $(this).attr('data-speed') : 5;
-			console.log(speed);
 			//console.log(typeof speed);
 			// only put top value if the window scroll has gone beyond the top of the image
 			if ( ($(this).offset().top - 500 < $(window).scrollTop()) && (section.offset().top + section.outerHeight() - 200 ) > $(window).scrollTop() ) {
@@ -103,7 +102,6 @@ jQuery(document).ready(function($){
 				// Top value of image is set to half the amount scrolled
 				// (this gives the illusion of the image scrolling slower than the rest of the page)
 				var half = (difference / speed) + 'px';
-				console.log(half);
 
 				$(this).find('img').css('top', "-" + half);
 			} else {
