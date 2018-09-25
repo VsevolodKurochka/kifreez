@@ -15,26 +15,41 @@
 			+size(225px)
 
 	&__description
-		+d(flex)
-		align-items: center
-		justify-content: center
 		
-		+a(0, 0)
-		+size(100%)
-		padding: 15px
-		+bgc($color-brand-1)
-		
-		transform: translateY(-250%)
-		+transition()
-		overflow: hidden
-		
-		+c($color-white)
+		font-size: 14px
 		text-align: center
-		font-size: 18px
-		+fw(900)
 
-	&:hover &__description
-		transform: none
+		+max(sm)
+			padding: 10px 5px
+			+bgc($color-general)
+			margin-top: 10px
+
+		+min(sm)
+			+d(flex)
+			align-items: center
+			justify-content: center
+			
+			+a(0, null, null, 0)
+			+size(100%)
+			padding: 15px
+			+bgc($color-brand-1)
+			
+			transform: translate(-50%, -250%)
+			+transition()
+			overflow: hidden
+			
+			font-size: 18px
+			+fw(900)
+			+c($color-white)
+			
+
+		+min(md)
+			left: 50%
+			+size(225px)
+
+	+min(sm)
+		&:hover &__description
+			transform: translate(-50%, 0)
 
 	&__image
 		+size(100%)

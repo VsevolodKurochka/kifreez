@@ -124,13 +124,15 @@ jQuery(document).ready(function($){
 		items: 1,
 		dots: false,
 		navContainerClass: 'home-team__carousel-nav',
+		autoHeight: true,
 		navClass: [
 			"home-team__carousel-btn home-team__carousel-btn_prev btn btn_general effect effect_bounce-bottom", 
 			"home-team__carousel-btn home-team__carousel-btn_next btn btn_general effect effect_bounce-bottom"
 		],
 		responsive: {
 			768: {
-				items: 2
+				items: 2,
+				autoHeight: false
 			},
 			1025: {
 				items: 3
